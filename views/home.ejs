@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title><%=locals.title %></title>
+        <script src="https://kit.fontawesome.com/108f3e338d.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="/css/home.css">
+    </head>
+
+    <body>
+        
+  
+        <div id="box">
+        <% for(let i of todo_list) { %>
+            <div id="detail">
+            <div class="todo">
+                <p><%=i.description %></p>
+                <p><%=i.category %></p>
+                <p><%=i.date %></p>
+            </div>
+            <div id="delete-icon">
+                <a href="/delete-todo/?id=<%= i.id %>">
+                    <i class="fas fa-trash-alt"></i>
+                </a>
+            </div>
+        </div>
+        </div>
+        <%}%>
+    
+
+        <form  action="/create-todo"  method="Post" id="form">
+            <input type="text" name="description" placeholder="Description" required>
+            <input type="text" name="category" placeholder="Category" required>
+            <input type="date" name="date" required>
+            <input type="submit" value="ADD">
+        </form>
+    </div>
+
+
+    </body>
+</html>
